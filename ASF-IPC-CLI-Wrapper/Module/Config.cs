@@ -11,7 +11,7 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 
 				if (string.IsNullOrEmpty(config.IPCUrl) || string.IsNullOrEmpty(config.IPCPassword)) {
 					result.IsValid = false;
-					result.ErrMsg = "Please set IPC url and password in App.config first.";
+					result.ErrMsg = "Please set IPC url and password in config.json first.";
 				}
 				if (config.IPCUrl.EndsWith('/')) {
 					result.IsValid = false;
