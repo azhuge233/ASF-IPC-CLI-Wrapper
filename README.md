@@ -2,6 +2,10 @@
 
 Simple ArchiSteamFarm IPC command CLI wrapper, no more opening browser.
 
+## How this works
+
+It sends POST requests to API `Api/Command` then returns the result.
+
 ## Build
 
 Install dotnet 6.0 SDK first, you can find installation packages/guides [here](https://dotnet.microsoft.com/download).
