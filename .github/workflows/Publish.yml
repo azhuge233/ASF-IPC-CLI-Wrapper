@@ -34,15 +34,15 @@ jobs:
       uses: montudor/action-zip@v1
       
     - name: Zip Linux  
-      run: zip -qq -r linux-x64.zip linux-x64
+      run: zip -qq -r linux-x64.zip linux-x64/ASF linux-x64/config.json
       working-directory: bin/release
       
     - name: Zip Win  
-      run: zip -qq -r win-x64.zip win-x64
+      run: zip -qq -r win-x64.zip win-x64/ASF win-x64/config.json
       working-directory: bin/release
       
     - name: Zip macOS  
-      run: zip -qq -r osx-x64.zip osx-x64
+      run: zip -qq -r osx-x64.zip osx-x64/ASF osx-x64/config.json
       working-directory: bin/release
       
     - name: Upload zip
