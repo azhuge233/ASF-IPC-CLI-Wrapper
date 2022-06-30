@@ -3,8 +3,6 @@ name: Publish
 on:
   push:
     branches: [ master ]
-    tags:
-    - "*"
 
 jobs:
   publish:
@@ -25,9 +23,9 @@ jobs:
     - name: Publish
       run: |
         dotnet restore
-        dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 
-        dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
-        dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+        dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
+        dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
+        dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
       
     - name: Install Zip
       uses: montudor/action-zip@v1
@@ -47,7 +45,9 @@ jobs:
         if-no-files-found: warn
         
     - name: Create Release
-      uses: ncipollo/release-action@v1
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        artifacts: "bin/release/*.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: false
+        files: bin/release/*.zip
