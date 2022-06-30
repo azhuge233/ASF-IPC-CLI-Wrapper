@@ -1,0 +1,53 @@
+name: Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+    name: Publish the app
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Publish-Linux
+      run: dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      
+    - name: Publish-Win
+      run: dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      
+    - name: Publish-macOS
+      run: dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      
+    - name: Install Zip
+      uses: montudor/action-zip@v1
+      
+    - name: Zip Linux  
+      run: zip -qq -r linux-x64.zip linux-x64
+      working-directory: bin/release
+      
+    - name: Zip Win  
+      run: zip -qq -r win-x64.zip win-x64
+      working-directory: bin/release
+      
+    - name: Zip macOS  
+      run: zip -qq -r osx-x64.zip osx-x64
+      working-directory: bin/release
+      
+    - name: Upload zip
+      uses: actions/upload-artifact@v3
+      with:
+        name: My Artifact
+        path: bin/release/*.zip
+        if-no-files-found: warn
