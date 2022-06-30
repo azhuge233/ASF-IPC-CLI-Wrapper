@@ -3,11 +3,15 @@ name: Publish
 on:
   push:
     branches: [ master ]
+    tags:
+    - "*"
 
 jobs:
   publish:
     name: Publish the app
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout source code
@@ -51,3 +55,9 @@ jobs:
         name: My Artifact
         path: bin/release/*.zip
         if-no-files-found: warn
+        
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "bin/release/*.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
