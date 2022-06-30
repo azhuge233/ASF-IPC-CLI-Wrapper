@@ -22,13 +22,13 @@ jobs:
       run: dotnet restore
     
     - name: Publish-Linux
-      run: dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      run: dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
       
     - name: Publish-Win
-      run: dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      run: dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
       
     - name: Publish-macOS
-      run: dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc --no-restore
+      run: dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:PublishTrimmed=true --sc
       
     - name: Install Zip
       uses: montudor/action-zip@v1
