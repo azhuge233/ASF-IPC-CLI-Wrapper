@@ -20,6 +20,8 @@ Fill your IPC url and password in config.json, then run the executable file.
   - `ASF red [Bot] [Key1,Key2...]`
 - 2fa 
   - `ASF 2fa [Bot]`
+- stat
+  - `ASF stat [Bot]`
 - play
   - `ASF pl [Bot] [AppID/Game Name]`
 - reset
