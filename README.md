@@ -14,9 +14,9 @@ Fill your IPC url and password in config.json, then run the executable file.
 
 ### Currently supported IPC commands
 
-- Addlicense 
+- addlicense 
   - `ASF add [Bot1,Bot2...] [SubID1,AppID1,SubID2...]`
-- Redeem
+- redeem
   - `ASF red [Bot] [Key1,Key2...]`
 - 2fa 
   - `ASF 2fa [Bot]`
