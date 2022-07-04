@@ -18,6 +18,9 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 					case "2fa":
 						result = TwoFA(args);
 						break;
+					case "stat":
+						result = Status(args);
+						break;
 					case "pl":
 						result = Play(args);
 						break;
@@ -83,6 +86,22 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 				return parseResult;
 			} catch (Exception) {
 				Output.Error("TwoFA() Error!");
+				throw;
+			}
+		}
+
+		internal static ParseResult Status(string[] args) {
+			try {
+				if (args.Length > 2) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
+				if (args.Length == 1) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
+
+				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
+
+				parseResult.Commands.Add($"status {args[1]}");
+
+				return parseResult;
+			} catch (Exception) {
+				Output.Error("Status() Error!");
 				throw;
 			}
 		}
