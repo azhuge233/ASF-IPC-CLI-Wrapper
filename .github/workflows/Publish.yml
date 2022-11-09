@@ -27,9 +27,9 @@ jobs:
     - name: Publish
       run: |
         dotnet restore
-        dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true --sc
-        dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true --sc
-        dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true --sc
+        dotnet publish -c release -r linux-x64 -o bin/release/linux-x64 -p:PublishSingleFile=true -p:DebugType=None -p:DebugSymbols=false --sc
+        dotnet publish -c release -r win-x64 -o bin/release/win-x64 -p:PublishSingleFile=true -p:DebugType=None -p:DebugSymbols=false --sc
+        dotnet publish -c release -r osx-x64 -o bin/release/osx-x64 -p:PublishSingleFile=true -p:DebugType=None -p:DebugSymbols=false --sc
       
     - name: Install Zip
       uses: montudor/action-zip@v1
