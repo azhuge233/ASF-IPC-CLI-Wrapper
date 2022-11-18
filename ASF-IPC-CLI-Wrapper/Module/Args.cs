@@ -1,4 +1,5 @@
 ﻿using ASF_IPC_CLI_Wrapper.Model;
+using System.Runtime.CompilerServices;
 
 namespace ASF_IPC_CLI_Wrapper.Module {
 	internal static class Args {
@@ -26,6 +27,9 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 						break;
 					case "rst":
 						result = Reset(args);
+						break;
+					case "free":
+						result = Free(args);
 						break;
 					default:
 						result.ArgValid = false;
@@ -134,6 +138,21 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 				return parseResult;
 			} catch (Exception) {
 				Output.Error("Reset() Error!");
+				throw;
+			}
+		}
+
+		internal static ParseResult Free(string[] args) {
+			try {
+				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
+
+				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
+
+				parseResult.Commands.Add($"freegames");
+
+				return parseResult;
+			} catch (Exception) {
+				Output.Error("Free() Error!");
 				throw;
 			}
 		}

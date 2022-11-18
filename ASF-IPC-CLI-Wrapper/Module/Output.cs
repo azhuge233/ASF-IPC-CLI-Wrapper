@@ -6,7 +6,8 @@
 				"  2fa - two factor code command\n\tUsage: 2fa [BotName]\n" +
 				"  stat - status command\n\tUsage: stat [BotName]\n" +
 				"  pl - play command\n\tUsage: pl [BotName] [AppID/Game Name]\n" +
-				"  rst - reset command\n\tUsage: rst [BotName]";
+				"  rst - reset command\n\tUsage: rst [BotName]\n" +
+				"  free - claim free games\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)";
 
 		internal static void Usage() {
 			Console.ForegroundColor = ConsoleColor.Green;
