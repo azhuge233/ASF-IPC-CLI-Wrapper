@@ -26,10 +26,13 @@ Fill your IPC url and password in config.json, then run the executable file.
   - `ASF pl [Bot] [AppID/Game Name]`
 - reset
   - `ASF rst [Bot]`
+- freegames
+  - `ASF free`
+  - Need to install https://github.com/maxisoft/ASFFreeGames ASF plugin first.
 
 ## Build
 
-Install dotnet 6.0 SDK first, you can find installation packages/guides [here](https://dotnet.microsoft.com/download).
+Install dotnet 7.0 SDK first, you can find installation packages/guides [here](https://dotnet.microsoft.com/download).
 
 ### Publish
 
