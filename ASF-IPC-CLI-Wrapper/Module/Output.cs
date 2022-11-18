@@ -7,7 +7,7 @@
 				"  stat - status command\n\tUsage: stat [BotName]\n" +
 				"  pl - play command\n\tUsage: pl [BotName] [AppID/Game Name]\n" +
 				"  rst - reset command\n\tUsage: rst [BotName]\n" +
-				"  free - claim free games\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)";
+				"  free - freegames command\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)";
 
 		internal static void Usage() {
 			Console.ForegroundColor = ConsoleColor.Green;
