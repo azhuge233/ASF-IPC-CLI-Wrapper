@@ -3,12 +3,14 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>ASF_IPC_CLI_Wrapper</RootNamespace>
-	<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
-	<PublishSingleFile>true</PublishSingleFile>
+	  <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+	  <PublishSingleFile>true</PublishSingleFile>
     <ImplicitUsings>enable</ImplicitUsings>
-	<PublishReadyToRun>true</PublishReadyToRun>
+	  <PublishReadyToRun>true</PublishReadyToRun>
     <StartupObject>ASF_IPC_CLI_Wrapper.Program</StartupObject>
     <AssemblyName>ASF</AssemblyName>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>

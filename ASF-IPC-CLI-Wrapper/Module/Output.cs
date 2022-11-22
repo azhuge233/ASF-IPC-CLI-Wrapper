@@ -6,6 +6,7 @@
 				"  2fa - two factor code command\n\tUsage: 2fa [BotName]\n" +
 				"  stat - status command\n\tUsage: stat [BotName]\n" +
 				"  pl - play command\n\tUsage: pl [BotName] [AppID/Game Name]\n" +
+				"  rsm - resume command\n\tUsage: rsm [BotName]\n" +
 				"  rst - reset command\n\tUsage: rst [BotName]\n" +
 				"  free - freegames command\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)";
 
