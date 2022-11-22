@@ -24,6 +24,8 @@ Fill your IPC url and password in config.json, then run the executable file.
   - `ASF stat [Bot]`
 - play
   - `ASF pl [Bot] [AppID/Game Name]`
+- ressume
+  - `ASF rsm [Bot]`
 - reset
   - `ASF rst [Bot]`
 - freegames
