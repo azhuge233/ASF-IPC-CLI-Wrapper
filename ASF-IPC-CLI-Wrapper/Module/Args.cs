@@ -1,5 +1,4 @@
 ﻿using ASF_IPC_CLI_Wrapper.Model;
-using System.Runtime.CompilerServices;
 
 namespace ASF_IPC_CLI_Wrapper.Module {
 	internal static class Args {
@@ -33,6 +32,12 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 						break;
 					case "free":
 						result = Free(args);
+						break;
+					case "av":
+						result = AV(args);
+						break;
+					case "au":
+						result = AU(args);
 						break;
 					default:
 						result.ArgValid = false;
@@ -168,6 +173,36 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
 
 				parseResult.Commands.Add($"freegames");
+
+				return parseResult;
+			} catch (Exception) {
+				Output.Error("Free() Error!");
+				throw;
+			}
+		}
+
+		internal static ParseResult AV(string[] args) {
+			try {
+				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
+
+				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
+
+				parseResult.Commands.Add($"AV");
+
+				return parseResult;
+			} catch (Exception) {
+				Output.Error("Free() Error!");
+				throw;
+			}
+		}
+
+		internal static ParseResult AU(string[] args) {
+			try {
+				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
+
+				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
+
+				parseResult.Commands.Add($"AU");
 
 				return parseResult;
 			} catch (Exception) {

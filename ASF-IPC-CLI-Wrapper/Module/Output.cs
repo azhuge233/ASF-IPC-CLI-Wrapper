@@ -8,7 +8,9 @@
 				"  pl - play command\n\tUsage: pl [BotName] [AppID/Game Name]\n" +
 				"  rsm - resume command\n\tUsage: rsm [BotName]\n" +
 				"  rst - reset command\n\tUsage: rst [BotName]\n" +
-				"  free - freegames command\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)";
+				"  free - freegames command\n\t(https://github.com/maxisoft/ASFFreeGames plugin is needed)\n" +
+			    "  av - ASFEnhance AV(print version) command\n\t(https://github.com/chr233/ASFEnhance plugin is needed)\n" +
+				"  au - ASFEnhance AU(Auto Update) command\n\t(https://github.com/chr233/ASFEnhance plugin is needed)";
 
 		internal static void Usage() {
 			Console.ForegroundColor = ConsoleColor.Green;
