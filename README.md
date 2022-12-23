@@ -12,7 +12,9 @@ Download pre-build packages in release page.
 
 Fill your IPC url and password in config.json, then run the executable file.
 
-### Currently supported IPC commands
+## Currently supported commands
+
+### ASF IPC commands
 
 - addlicense 
   - `ASF add [Bot1,Bot2...] [SubID1,AppID1,SubID2...]`
@@ -24,13 +26,25 @@ Fill your IPC url and password in config.json, then run the executable file.
   - `ASF stat [Bot]`
 - play
   - `ASF pl [Bot] [AppID/Game Name]`
-- ressume
+- resume
   - `ASF rsm [Bot]`
 - reset
   - `ASF rst [Bot]`
+
+### [maxisoft/ASFFreeGames](https://github.com/maxisoft/ASFFreeGames) commands
+
 - freegames
   - `ASF free`
-  - Need to install https://github.com/maxisoft/ASFFreeGames ASF plugin first.
+  - Need to install https://github.com/maxisoft/ASFFreeGames plugin first.
+
+### [chr233/ASFEnhance](https://github.com/chr233/ASFEnhance) commands
+
+- AV
+  - `ASF av`
+  - Need to install https://github.com/chr233/ASFEnhance plugin first.
+- AU
+  - `ASF au`
+  - Need to install https://github.com/chr233/ASFEnhance plugin first.
 
 ## Build
 
