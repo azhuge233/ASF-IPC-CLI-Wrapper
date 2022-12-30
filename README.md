@@ -1,10 +1,10 @@
 # ASF-IPC-CLI-Wrapper
 
-Simple ArchiSteamFarm IPC command CLI wrapper, no more opening browser.
+Simple ArchiSteamFarm IPC command CLI wrapper, no more opening browser or Steam Chat.
 
 ## How this works
 
-It sends POST requests to API `Api/Command` then returns the result.
+It sends POST requests to ASF IPC's API endpoint `Api/Command` then returns the result.
 
 ## Usage
 
@@ -12,39 +12,11 @@ Download pre-build packages in release page.
 
 Fill your IPC url and password in config.json, then run the executable file.
 
-## Currently supported commands
-
-### ASF IPC commands
-
-- addlicense 
-  - `ASF add [Bot1,Bot2...] [SubID1,AppID1,SubID2...]`
-- redeem
-  - `ASF red [Bot] [Key1,Key2...]`
-- 2fa 
-  - `ASF 2fa [Bot]`
-- stat
-  - `ASF stat [Bot]`
-- play
-  - `ASF pl [Bot] [AppID/Game Name]`
-- resume
-  - `ASF rsm [Bot]`
-- reset
-  - `ASF rst [Bot]`
-
-### [maxisoft/ASFFreeGames](https://github.com/maxisoft/ASFFreeGames) commands
-
-- freegames
-  - `ASF free`
-  - Need to install https://github.com/maxisoft/ASFFreeGames plugin first.
-
-### [chr233/ASFEnhance](https://github.com/chr233/ASFEnhance) commands
-
-- AV
-  - `ASF av`
-  - Need to install https://github.com/chr233/ASFEnhance plugin first.
-- AU
-  - `ASF au`
-  - Need to install https://github.com/chr233/ASFEnhance plugin first.
+```bash
+ASF [your ASF instance available commands]
+# eg: ASF 2fa asf
+#     ASF addlicense [Bot1],[Bot2],... <AppID>,<SubID>,...
+```
 
 ## Build
 
