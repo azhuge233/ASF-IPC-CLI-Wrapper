@@ -1,49 +1,13 @@
 ﻿using ASF_IPC_CLI_Wrapper.Model;
+using System.Text;
 
 namespace ASF_IPC_CLI_Wrapper.Module {
 	internal static class Args {
 		internal static ParseResult Parse(string[] args) {
+			if (args.Length == 0) return new ParseResult() { HasArg = false, ErrMsg = "No argument specified!" };
+
 			try {
-				if (args.Length == 0) return new ParseResult() { HasArg = false, ErrMsg = "No argument specified!"};
-
-				var result = new ParseResult();
-
-				switch (args[0].ToLower()) {
-					case "add":
-						result = Add(args);
-						break;
-					case "red":
-						result = Red(args);
-						break;
-					case "2fa":
-						result = TwoFA(args);
-						break;
-					case "stat":
-						result = Status(args);
-						break;
-					case "pl":
-						result = Play(args);
-						break;
-					case "rsm":
-						result = Resume(args);
-						break;
-					case "rst":
-						result = Reset(args);
-						break;
-					case "free":
-						result = Free(args);
-						break;
-					case "av":
-						result = AV(args);
-						break;
-					case "au":
-						result = AU(args);
-						break;
-					default:
-						result.ArgValid = false;
-						result.ErrMsg = "Invalid args!";
-						break;
-				}
+				var result = ParseCommand(args);
 
 				return result;
 			} catch (Exception) {
@@ -52,161 +16,21 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 			}
 		}
 
-		internal static ParseResult Add(string[] args) {
+		internal static ParseResult ParseCommand(string[] args) {
 			try {
-				if (args.Length > 3) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1 || args.Length == 2) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
+				var parseReult = new ParseResult() { HasArg = true, ArgValid = true };
+				var sb = new StringBuilder();
 
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				foreach (string bot in args[1].Split(',')) { 
-					parseResult.Commands.Add($"addlicense {bot} {args[2]}");
+				foreach (var commandPart in args) {
+					sb.Append($"{commandPart} ");
 				}
+				sb.Length -= 1;
 
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Add() Error!");
-				throw;
-			}
-		}
+				parseReult.Commands.Add(sb.ToString());
 
-		internal static ParseResult Red(string[] args) {
-			try {
-				if (args.Length > 3) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1 || args.Length == 2) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"redeem {args[1]} {args[2]}");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Red() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult TwoFA(string[] args) {
-			try {
-				if (args.Length > 2) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"2fa {args[1]}");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("TwoFA() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult Status(string[] args) {
-			try {
-				if (args.Length > 2) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"status {args[1]}");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Status() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult Play(string[] args) {
-			try {
-				if (args.Length > 3) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1 || args.Length == 2) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"play {args[1]} {args[2]}");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Play() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult Resume(string[] args) {
-			try {
-				if (args.Length > 2) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"resume {args[1]}");
-				
-				return parseResult;
-			} catch(Exception) {
-				Output.Error("Resume() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult Reset(string[] args) {
-			try {
-				if (args.Length > 2) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-				if (args.Length == 1) return new ParseResult() { ArgValid = false, ErrMsg = "Lack Of Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"reset {args[1]}");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Reset() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult Free(string[] args) {
-			try {
-				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"freegames");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Free() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult AV(string[] args) {
-			try {
-				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"AV");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Free() Error!");
-				throw;
-			}
-		}
-
-		internal static ParseResult AU(string[] args) {
-			try {
-				if (args.Length > 1) return new ParseResult() { ArgValid = false, ErrMsg = "Too Many Arguments!" };
-
-				var parseResult = new ParseResult() { ArgValid = true, HasArg = true };
-
-				parseResult.Commands.Add($"AU");
-
-				return parseResult;
-			} catch (Exception) {
-				Output.Error("Free() Error!");
+				return parseReult;
+			} catch {
+				Output.Error("ParseCommand() Error!");
 				throw;
 			}
 		}
