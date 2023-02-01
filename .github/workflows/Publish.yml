@@ -40,13 +40,6 @@ jobs:
         zip -qq -r win-x64.zip win-x64/ASF* win-x64/config.json
         zip -qq -r osx-x64.zip osx-x64/ASF* osx-x64/config.json
       working-directory: bin/release
-      
-    - name: Upload zip
-      uses: actions/upload-artifact@v3
-      with:
-        name: My Artifact
-        path: bin/release/*.zip
-        if-no-files-found: warn
         
     - name: Create Release
       uses: "marvinpinto/action-automatic-releases@latest"
