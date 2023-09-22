@@ -9,6 +9,7 @@ namespace ASF_IPC_CLI_Wrapper.Module {
 				var sb = new StringBuilder();
 				var client = new HttpClient();
 				client.DefaultRequestHeaders.Add("Authentication", config.IPCPassword);
+				client.DefaultRequestHeaders.Add("User-Agent", "ASF CLI Wrapper (+https://github.com/azhuge233/ASF-IPC-CLI-Wrapper)");
 				string url = $"{config.IPCUrl}/Api/Command";
 
 				foreach (var command in commands) {
