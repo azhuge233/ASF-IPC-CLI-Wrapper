@@ -20,7 +20,7 @@ ASF [your ASF instance available commands]
 
 ## Build
 
-Install dotnet 7.0 SDK first, you can find installation packages/guides [here](https://dotnet.microsoft.com/download).
+Install dotnet 8.0 SDK first, you can find installation packages/guides [here](https://dotnet.microsoft.com/download).
 
 ### Publish
 
