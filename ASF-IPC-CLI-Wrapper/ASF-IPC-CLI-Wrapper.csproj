@@ -5,6 +5,8 @@
     <RootNamespace>ASF_IPC_CLI_Wrapper</RootNamespace>
 	  <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
 	  <PublishSingleFile>true</PublishSingleFile>
+		<SelfContained>true</SelfContained>
+		<PublishTrimmed>false</PublishTrimmed>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <PublishReadyToRun>true</PublishReadyToRun>
     <StartupObject>ASF_IPC_CLI_Wrapper.Program</StartupObject>
