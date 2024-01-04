@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>ASF_IPC_CLI_Wrapper</RootNamespace>
-	  <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
 	  <PublishSingleFile>true</PublishSingleFile>
 		<SelfContained>true</SelfContained>
 		<PublishTrimmed>false</PublishTrimmed>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <PublishReadyToRun>true</PublishReadyToRun>
+		<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <StartupObject>ASF_IPC_CLI_Wrapper.Program</StartupObject>
     <AssemblyName>ASF</AssemblyName>
 		<DebugType>none</DebugType>
